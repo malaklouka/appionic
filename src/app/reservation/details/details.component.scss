@@ -1,0 +1,33 @@
+p {
+    margin-left: 8px;
+    line-height:2px;
+    font: bold 12px/30px  Georgia, serif;
+}
+
+span {
+    font:  12px/30px Georgia, serif;
+}
+
+rating {
+    ion-icon {
+      color: gray;
+  
+      &.filled {
+        //color: #26ff00;
+        fill: #26ff00;
+      }
+    }
+  }
+  
+ion-button{
+  --background:#ccc;
+  --color:#fa8228;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  font-weight: 700;
+  
+}
+ion-toolbar{
+  --background:black;
+  --color:#fa8228;
+}

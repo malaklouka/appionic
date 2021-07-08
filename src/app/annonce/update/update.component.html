@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Modfication Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <form  [formGroup]="formED" (ngSubmit)="save()" > 
+    <div>
+      <label>Pays Depart : </label>
+      <ion-input  formControlName="paysD"  ></ion-input>
+      <div class="error" *ngIf="formED.get('paysD').hasError('required') && formED.get('paysD').touched">
+        Veuillez saisir Pays de Depart 
+      </div>
+    </div>
+    <div>
+      <label>Pays Destination : </label>
+      <ion-input name="paysA" formControlName="paysA"  ></ion-input>
+      <div class="error" *ngIf="formED.get('paysA').hasError('required') && formED.get('paysA').touched">
+        Veuillez saisir votre Destination 
+      </div>
+    </div>
+    <div>
+      <label>Date Depart : </label>
+      <ion-input name="dateD" formControlName="dateD"  ></ion-input>
+      <div class="error" *ngIf="formED.get('dateD').hasError('required') && formED.get('dateD').touched">
+        Veuillez saisir votre Date de dpart 
+      </div>
+    </div>
+    <div>
+      <label>Heure Depart : </label>
+      <ion-input name="heureD" formControlName="heureD"  ></ion-input>
+      <div class="error" *ngIf="formED.get('heureD').hasError('required') && formED.get('heureD').touched">
+        Veuillez saisir Heure de depart
+      </div>
+    </div>
+    <div>
+      <label>Poids : </label>
+      <ion-input name="poids" formControlName="poids" ></ion-input>
+      <div class="error" *ngIf="formED.get('poids').hasError('required') && formED.get('poids').touched">
+        Veuillez saisir Poids
+      </div>
+    </div>
+    <div>
+      <label>Prix : </label>
+      <ion-input name="prix" formControlName="prix"  ></ion-input>
+      <div class="error" *ngIf="formED.get('prix').hasError('required') && formED.get('prix').touched">
+        Veuillez saisir le Prix 
+      </div>
+    </div>
+    <div>
+      <label>Description : </label>
+      <ion-input type="descrip" name="password" formControlName="descrip"   ></ion-input>
+      
+    </div> 
+    <div>
+      <ion-button type="submit" class="myButton" expand="block" [disabled]="formED.invalid">Enregistrer</ion-button>
+    </div>
+  </form>
+  
+</ion-content>

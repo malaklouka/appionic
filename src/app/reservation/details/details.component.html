@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Détails Demande</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ 
+  <p>Date Publication : <span>{{infoDMD.datePublication}}</span><br>
+    Pays Depart :  <span>{{infoDMD.paysDep}}</span><br>
+    Destination :  <span>{{infoDMD.paysDest}}</span><br>
+  Date Voyage :  <span>{{infoDMD.dateDep}}</span><br>
+  Heure Voyage :  <span>{{infoDMD.heureDep}}</span><br>
+  Poids : <span>{{infoDMD.poids}} Kg</span><br>
+  Prix : <span>{{infoDMD.prix}} DT</span><br>
+  Voyageur : <span>{{infoDMD.nomUser}} {{infoDMD.prenomUser}}</span><br>
+  Description : <span>{{infoDMD.descripAnnonce}}</span></p>
+  <br>
+
+ <form>
+  <rating [(ngModel)]="note"
+  name="note" max="5" rate="3"  emptyStarIconName="star-outline"  halfStarIconName="star-half" starIconName="star"  nullable="false"  
+(ngModelChange)="onRateChange($event)">
+</rating>
+ 
+      <ion-button type="submit" class="myButton" expand="block"  (click)="save(infoDMD.idUser)">Evaluer</ion-button>
+    </form>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "COVA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

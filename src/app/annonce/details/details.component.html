@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Détails Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ 
+  <p>Date Publication : <span>{{annonce.datePublication}}</span><br>
+    Pays Depart :  <span>{{annonce.paysDep}}</span><br>
+    Destination :  <span>{{annonce.paysDest}}</span><br>
+  Date Voyage :  <span>{{annonce.dateDep}}</span><br>
+  Heure Voyage :  <span>{{annonce.heureDep}}</span><br>
+  Poids : <span>{{annonce.poids}} Kg</span><br>
+  Prix : <span>{{annonce.prix}} DT</span><br>
+  Voyageur : <span>{{annonce.nomUser}} {{annonce.prenomUser}}</span><br>
+  Description : <span>{{annonce.descripAnnonce}}</span></p>
+  <br>
+  <ion-button expand="block" [routerLink]="['/message/send',annonce.user_id]" >Contacter</ion-button>
+  <ion-button expand="block"  (click)="reserver(annonce.codeAnnonce )">Reserver</ion-button>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mon Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <form  [formGroup]="formProfil" (ngSubmit)="save()" > 
+    <div>
+      <label>Nom : </label>
+      <ion-input  name="nom"  formControlName="nom" ></ion-input>
+      <div class="error" *ngIf="formProfil.get('nom').hasError('required') && formProfil.get('nom').touched">
+        Veuillez saisir votre Nom 
+      </div>
+    </div>
+    <div>
+      <label>Prénom : </label>
+      <ion-input name="prenom" formControlName="prenom"  ></ion-input>
+      <div class="error" *ngIf="formProfil.get('prenom').hasError('required') && formProfil.get('prenom').touched">
+        Veuillez saisir votre Prénom 
+      </div>
+    </div>
+    <div>
+      <label>Téléphone : </label>
+      <ion-input name="tel" formControlName="tel" ></ion-input>
+      <div class="error" *ngIf="formProfil.get('tel').hasError('required') && formProfil.get('tel').touched">
+        Veuillez saisir votre Téléphone 
+      </div>
+    </div>
+    <div>
+      <label>E-mail : </label>
+      <ion-input name="mail" formControlName="mail" ></ion-input>
+      <div class="error" *ngIf="formProfil.get('mail').hasError('required') && formProfil.get('mail').touched">
+        Veuillez saisir votre E-mail 
+      </div>
+    </div>
+    <div>
+      <label>Sexe : </label>
+      <ion-select name="sexe" formControlName="sexe" >
+          <ion-select-option value="Homme">Homme</ion-select-option> 
+          <ion-select-option value="Femme">Femme</ion-select-option> 
+      </ion-select>
+      <div class="error" *ngIf="formProfil.get('sexe').hasError('required') && formProfil.get('sexe').touched">
+        Veuillez choisir votre Sexe 
+      </div>
+    </div>
+    <div>
+      <label>Mot de passe : </label>
+      <ion-input type="password" name="password" formControlName="password"  ></ion-input>
+      <div class="error" *ngIf="formProfil.get('password').hasError('required') && formProfil.get('password').touched">
+        Veuillez saisir votre Mot de passe 
+      </div>
+    </div> 
+    <div>
+      <ion-button type="submit" class="myButton" expand="block" [disabled]="formProfil.invalid">Valider</ion-button>
+    </div>
+  </form>
+  
+</ion-content>

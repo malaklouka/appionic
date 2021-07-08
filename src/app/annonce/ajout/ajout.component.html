@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ajout Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <form  [formGroup]="formAnnonce" (ngSubmit)="save()" > 
+    <div>
+      <ion-item>
+        <ion-icon name="location" ></ion-icon>
+      <label>Pays Depart : </label>
+      </ion-item>
+      <ion-input  formControlName="paysD"></ion-input>
+      <div class="error" *ngIf="formAnnonce.get('paysD').hasError('required') && formAnnonce.get('paysD').touched">
+        Veuillez saisir Pays de Depart 
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="flag" ></ion-icon>
+      <label>Pays Destination : </label>
+      </ion-item>
+      <ion-input name="paysA" formControlName="paysA"></ion-input>
+      <div class="error" *ngIf="formAnnonce.get('paysA').hasError('required') && formAnnonce.get('paysA').touched">
+        Veuillez saisir votre Destination 
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="calendar" ></ion-icon>
+      <label>Date Depart : </label>
+      </ion-item>
+      <ion-datetime  displayFormat="YYYY-MM-DD" [min]="minDate" name="dateD"   formControlName="dateD"></ion-datetime> 
+      <div class="error" *ngIf="formAnnonce.get('dateD').hasError('required') && formAnnonce.get('dateD').touched">
+        Veuillez saisir votre Date de dpart 
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="time" ></ion-icon>
+      <label>Heure Depart : </label>
+      </ion-item>
+      <ion-input name="heureD" formControlName="heureD"></ion-input>
+      <div class="error" *ngIf="formAnnonce.get('heureD').hasError('required') && formAnnonce.get('heureD').touched">
+        Veuillez saisir Heure de depart
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="briefcase" ></ion-icon>
+      <label>Poids : </label>
+      </ion-item>
+      <ion-input name="poids" formControlName="poids"></ion-input>
+      <div class="error" *ngIf="formAnnonce.get('poids').hasError('required') && formAnnonce.get('poids').touched">
+        Veuillez saisir Poids
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="cash" ></ion-icon>
+      <label>Prix : </label>
+      </ion-item>
+      <ion-input name="prix" formControlName="prix"></ion-input>
+     
+      <div class="error" *ngIf="formAnnonce.get('prix').hasError('required') && formAnnonce.get('prix').touched">
+        Veuillez saisir le Prix 
+      </div>
+    </div>
+    <div>
+      <ion-item>
+        <ion-icon name="document-text"></ion-icon>
+      <label>Description : </label>
+      </ion-item>
+      <ion-input type="descrip" name="password" formControlName="descrip"></ion-input>
+      
+    </div> 
+    <div>
+      <ion-button type="submit" class="myButton" expand="block" [disabled]="formAnnonce.invalid">Valider</ion-button>
+    </div>
+  </form>
+  
+</ion-content>

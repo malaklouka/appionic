@@ -1,0 +1,51 @@
+<!--<ion-content padding class="background"></ion-content>-->
+<ion-header [translucent]="true">
+ 
+  <ion-toolbar> 
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding >
+  <form  [formGroup]="formLogin" (ngSubmit)="login()" > 
+    <div class="logo-section__wrapper">
+      <img class="logo-section__logo" src="../../assets/icon/faf.PNG"/>
+     
+      
+    </div>
+    <div>
+     <!-- <label>Email : </label>-->
+     <ion-item>
+      <ion-icon name="mail" color="light" slot="start"></ion-icon>
+      <ion-input  formControlName="mail" placeholder="Email"></ion-input>
+    </ion-item>
+      <div class="error" *ngIf="formLogin.get('mail').hasError('required') && formLogin.get('mail').touched">
+        Veuillez saisir votre email
+      </div>
+    </div>
+ 
+    <div>
+     <!-- <label>Mot De Passe</label>-->
+     <ion-item>
+      <ion-icon name="lock-closed" color="light" slot="start"></ion-icon>
+      <ion-input type="password" name="password" formControlName="password" placeholder="Password"></ion-input>
+  
+    </ion-item>
+      <div class="error" *ngIf="formLogin.get('password').hasError('required') && formLogin.get('password').touched">
+        Veuillez saisir votre mot de passe
+      </div>
+      
+    </div>
+    <div>
+     
+       
+      <ion-button type="submit" shape="full" class="myButton" expand="full" fill="clear" [disabled]="formLogin.invalid">Connecter</ion-button>
+      
+      <h6 style="text-align: center;" routerLink="/inscription" >Pas de compte ? Créez-en un</h6>
+      <!---- <ion-button type="submit" shape="round"  expand="full" fill="outline" routerLink="/inscription" >Créer un Compte</ion-button>-->
+    </div>
+  </form>
+
+  
+  
+</ion-content>

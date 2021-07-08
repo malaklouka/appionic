@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Réclamation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <form  [formGroup]="formMsg" (ngSubmit)="sendd()" > 
+    <div>
+      <label>Sujet : </label>
+      <ion-input  formControlName="sujet"></ion-input>
+      <div class="error" *ngIf="formMsg.get('sujet').hasError('required') && formMsg.get('sujet').touched">
+        Veuillez saisir le Sujet
+      </div>
+    </div>
+    <div>
+      <label>Réclamation : </label>
+      <ion-textarea name="msg" formControlName="msg"></ion-textarea>
+      <div class="error" *ngIf="formMsg.get('msg').hasError('required') && formMsg.get('msg').touched">
+        Veuillez saisir votre Message 
+      </div>
+    </div>
+    
+    <div>
+      <ion-button type="submit" class="myButton" expand="block" [disabled]="formMsg.invalid">Valider</ion-button>
+    </div>
+  </form>
+  
+</ion-content>
